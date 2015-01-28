@@ -1,0 +1,30 @@
+
+
+process:
+//get today's date
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = yyyy+mm+dd-1;
+console.log(today);
+
+var ecoUrl = 'http://www.eco-public.com/api/h7q239dd/data/periode/102018487/?begin=' + today + '&step=5'
+
+
+
+
+//my cool data:
+
+I can use the lat long which would be neat!
+
+{"titre":"Peace Bridge Cyclist Counts","idPdc":102018487,"alias":"Alias","logos":["https://www.eco-visio.net/Logos/4190/1418316508984.jpg"],"langue":"CA","date":"2014-04-24","photos":[],"latitude":51.054085,"longitude":-114.07913,"pratique":2,"message":null,"url":"http://www.eco-public.com/Public/?id=102018487","nbPratiques":0,"nbSens":0}
