@@ -19,10 +19,17 @@ today = yyyy+mm+dd-1;
 console.log(today);
 
 // get the json string
-var ecoUrl = 'http://www.eco-public.com/api/h7q239dd/data/periode/102018487/?begin=' + today + '&step=5'
+// var ecoUrl = 'http://www.eco-public.com/api/h7q239dd/data/periode/102018487/?begin=' + today + '&step=5'
 
-// string to parse?
-var ecoUrl (something?)
+//tempr
+var ecoUrl = 'http://www.eco-public.com/api/h7q239dd/data/periode/100018487?begin=20150126&end=20150126&step=4';
+
+//  not yet working
+$.getJSON(ecoUrl, function(data) {
+    //data is the JSON string
+});
+
+
 // parse json string
 
 
