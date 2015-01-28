@@ -1,11 +1,11 @@
 
 
 // ----- process: ---/
-//get today's date
-var today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth()+1; //January is 0!
-var yyyy = today.getFullYear();
+//get hier's date
+var hier = new Date();
+var dd = hier.getDate();
+var mm = hier.getMonth()+1; //January is 0!
+var yyyy = hier.getFullYear();
 
 if(dd<10) {
     dd='0'+dd
@@ -15,11 +15,11 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-today = yyyy+mm+dd-1;
-console.log(today);
+hier = yyyy+mm+dd-1;
+console.log(hier);
 
 // get the json string
-// var ecoUrl = 'http://www.eco-public.com/api/h7q239dd/data/periode/102018487/?begin=' + today + '&step=5'
+// var ecoUrl = 'http://www.eco-public.com/api/h7q239dd/data/periode/102018487/?begin=' + hier + '&step=5'
 
 //tempr
 var ecoUrl = 'http://www.eco-public.com/api/h7q239dd/data/periode/100018487?begin=20150126&end=20150126&step=4';
@@ -85,7 +85,25 @@ for(var obj in jsonData){
 
 // RAD!!!!! sloppy but it works
 
-var u = 'http://www.eco-public.com/api/h7q239dd/data/periode/100018487?begin=20150126&end=20150126&step=4';
+var hier = new Date();
+var dd = hier.getDate();
+var mm = hier.getMonth()+1; //January is 0!
+var yyyy = hier.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+hier = yyyy+mm+dd-1;
+console.log(hier);
+
+
+
+var u = 'http://www.eco-public.com/api/h7q239dd/data/periode/100018487?begin=' + hier + '&end='+ hier +'&step=4';
 
 var request = $.getJSON( u, function() {
 
