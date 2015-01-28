@@ -1,6 +1,6 @@
 
 
-process:
+// ----- process: ---/
 //get today's date
 var today = new Date();
 var dd = today.getDate();
@@ -18,8 +18,20 @@ if(mm<10) {
 today = yyyy+mm+dd-1;
 console.log(today);
 
+// get the json string
 var ecoUrl = 'http://www.eco-public.com/api/h7q239dd/data/periode/102018487/?begin=' + today + '&step=5'
 
+// string to parse?
+var ecoUrl (something?)
+// parse json string
+
+
+var jsObjects = [{a: 1, b: 2}, {a: 3, b: 4}, {a: 5, b: 6}, {a: 7, b: 8}];
+var result = jsObjects.filter(function( obj ) {
+  return obj.b == 6;
+});
+
+console.log(result);
 
 
 
