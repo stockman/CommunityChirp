@@ -77,6 +77,43 @@ function getHeadline(url) {
   return dfd.promise();
 }
 
+
+
+//----------## Abacus
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+var hier = new Date();
+var dd = hier.getDate();
+var mm = hier.getMonth()+1; //January is 0!
+var yyyy = hier.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+hier = yyyy+mm+dd-1;
+
+var u = 'http://www.eco-public.com/api/h7q239dd/data/periode/100018487?begin=' + hier + '&end='+ hier +'&step=4';
+
+function Get(u){
+var Httpreq = new XMLHttpRequest(); // a new request
+Httpreq.open("GET",u,false);
+Httpreq.send(null);
+return Httpreq.responseText;          
+}
+
+var json_obj = JSON.parse(Get(u));
+var compter = json_obj[0].comptage;
+
+
+//----------## Abacus
+
+
+
 // ### Tweeting
 
 //      Category codes:
@@ -105,8 +142,8 @@ function tweet() {
         getTopics(categoryCodes.pickRemove()).then(function(topics) {
           var newTopic = topics.pick();
           var newHeadline = headline.replace(topic.name, newTopic.name);
-          console.log(newHeadline);
-          newHeadline = 'I think it is icy #icystreets \n stay upright!'; //override headline so you can mod it
+          // console.log(newHeadline);
+          newHeadline = compter++ + ' number of super fantastic cyclists rode the peace bridge yesterday!\n #cool'; //override headline so you can mod it
           T.post('statuses/update', { status: newHeadline }, function(err, reply) {
             if (err) {
               console.log('error:', err);
@@ -136,4 +173,6 @@ setInterval(function () {
   catch (e) {
     console.log(e);
   }
-}, 1000 * 60 * 60);
+}, 100 * 60 * 60);
+// 60 * 10000 // Every 10 mins
+// 1000 * 60 * 60);
