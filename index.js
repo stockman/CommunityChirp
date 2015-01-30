@@ -77,46 +77,6 @@ function getHeadline(url) {
   return dfd.promise();
 }
 
-
-
-//## Abacus
-
-
-var hier = new Date();
-var dd = hier.getDate();
-var mm = hier.getMonth()+1; //January is 0!
-var yyyy = hier.getFullYear();
-
-if(dd<10) {
-    dd='0'+dd
-} 
-
-if(mm<10) {
-    mm='0'+mm
-} 
-
-hier = yyyy+mm+dd-1;
-//console.log(hier);
-
-
-
-var u = 'http://www.eco-public.com/api/h7q239dd/data/periode/100018487?begin=' + hier + '&end='+ hier +'&step=4';
-
-var request = $.getJSON( u, function() {
-  // hello
-
-});
-
-request.done(function(data){
-//  console.log(data); 
-  var compter = data[0].comptage
-//  console.log(data[0].comptage);
-//  console.log(compter);
-});
-
-
-
-
 // ### Tweeting
 
 //      Category codes:
@@ -146,8 +106,7 @@ function tweet() {
           var newTopic = topics.pick();
           var newHeadline = headline.replace(topic.name, newTopic.name);
           console.log(newHeadline);
-          //compter + 
-          newHeadline =  ' number of super fantastic cyclists rode the peace bridge yesterday!\n #cool';  //#yycbike #peacebridge        //override headline so you can mod it
+          newHeadline = 'I think it is icy #icystreets \n stay upright!'; //override headline so you can mod it
           T.post('statuses/update', { status: newHeadline }, function(err, reply) {
             if (err) {
               console.log('error:', err);
@@ -159,7 +118,7 @@ function tweet() {
         });
       }
       else {
-        console.log('couldn\'t find the count, trying again...');
+        console.log('couldn\'t find a headline match, trying again...');
         tweet();
       }
     });
