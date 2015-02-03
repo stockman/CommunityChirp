@@ -1,4 +1,4 @@
-
+var donnerjour = function(){
 
 var hier = new Date();
 
@@ -18,9 +18,7 @@ if(mm<10) {
 } 
 
 hier = yyyy+mm+dd;
-console.log(hier);
-
-
+// console.log(hier);
 
 var getJSON = function(url) {
   return new Promise(function(resolve, reject) {
@@ -40,17 +38,6 @@ var getJSON = function(url) {
 };
 
 var u = 'http://www.eco-public.com/api/h7q239dd/data/periode/100018487?begin=' + hier + '&end='+ hier +'&step=4';
-/* var p = getJSON(u).then(function(data) {
-    // console.log('Your Json result is:  ' + data.result); //you can comment this, i used it to debug
-compter = data[0].comptage
-// console.log(compter);
-    // result.innerText = data.result; //display the result in an HTML element
-}, function(status) { //error detection....
-  // console.log('Something went wrong.');
-});
-console.log(p[0]);
-
-*/
 
 function Get(u){
 var Httpreq = new XMLHttpRequest(); // a new request
@@ -61,5 +48,8 @@ return Httpreq.responseText;
     }
 var json_obj = JSON.parse(Get(u));
 var compter = json_obj[0].comptage;
-console.log(compter);
+// console.log(compter);
+  return compter;
+}
 
+donnerjour();
