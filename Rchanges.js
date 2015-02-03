@@ -1,6 +1,10 @@
 
 
 var hier = new Date();
+
+hier.setDate(hier.getDate() - 1);
+
+// var hier = new Date();
 var dd = hier.getDate();
 var mm = hier.getMonth()+1; //January is 0!
 var yyyy = hier.getFullYear();
@@ -13,9 +17,8 @@ if(mm<10) {
     mm='0'+mm
 } 
 
-hier = yyyy+mm+dd-3;
-
-
+hier = yyyy+mm+dd;
+console.log(hier);
 
 
 
